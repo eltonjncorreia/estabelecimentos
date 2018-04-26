@@ -8,6 +8,8 @@ django = "*"
 dj-static = "*"
 python-decouple = "*"
 dj-database-url = "*"
+"psycopg2" = ">=2.7.4"
+"psycopg2-binary" = ">=2.7.4"
 
 [dev-packages]
 
