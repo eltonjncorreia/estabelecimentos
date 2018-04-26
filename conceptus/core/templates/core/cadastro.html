@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}'
+
+{% block cabecalho %} Store {% endblock cabecalho %}
+
+{% block content %}
+
+<!-- Page Heading -->
+
+  <!--{% if messages %}-->
+
+        <!--{% for message in messages %}-->
+
+        <!--<div class="alert alert-danger">-->
+          <!--{{ message|slice:":0" }}-->
+        <!--</div>-->
+
+        <!--{% endfor %}-->
+
+  <!--{% endif %}-->
+
+
+<div class="row">
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+    </form>
+</div>
+<!-- /.row -->
+
+
+{% endblock content %}
+

@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}'
+
+{% block cabecalho %} Store {% endblock cabecalho %}
+
+{% block content %}
+
+<!-- Page Heading -->
+
+  {% if messages %}
+
+        {% for message in messages %}
+
+        <div class="alert alert-danger">
+          {{ message|slice:":0" }}
+        </div>
+
+        {% endfor %}
+
+  {% endif %}
+
+<!--CAMPOS DE BUSCA-->
+<form method="post" action=".">
+  {% csrf_token %}
+
+  <div class="input-group">
+
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+    <input type="text" name="valor" placeholder="Nome ou Numero" class="form-control">
+
+
+  </div>
+</form>
+<!--FIM CAMPOS DE BUSCA-->
+
+<br>
+<br>
+
+<div class="row">
+
+  {% for store in stores %}
+
+  <div class="col-lg-4 col-sm-6 portfolio-item">
+    <div class="card h-100">
+      <!--<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="">{{ store.nome }}</a>
+        </h4>
+        <p class="card-text">dipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+</div>
+<!-- /.row -->
+
+
+{% endblock content %}
+
