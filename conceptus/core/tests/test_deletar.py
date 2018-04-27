@@ -13,7 +13,7 @@ class DeletarTest(TestCase):
 
         self.resp = self.client.get(r('core:deletar', self.obj.slug))
 
-    def test_get(self):
+    def test_redirect(self):
         self.assertEqual(302, self.resp.status_code)
 
     def test_object_exist(self):
