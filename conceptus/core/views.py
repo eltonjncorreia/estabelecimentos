@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, resolve_url as r
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 from conceptus.core.forms import StoreModelForm
 from conceptus.core.models import Store
@@ -13,6 +14,11 @@ def dashboard(request):
 
     if not valor:
         stores = Store.objects.all()
+        paginator = Paginator(stores, 5)
+
+        page = request.GET.get('page')
+        stores = paginator.get_page(page)
+
     return render(request, 'core/dashboard.html', {'stores': stores})
 
 
