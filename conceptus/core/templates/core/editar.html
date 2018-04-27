@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+
+{% block cabecalho %} Detalhes da Loja {% endblock cabecalho %}
+
+{% block content %}
+
+{% if messages %}
+
+{% for message in messages %}
+
+<div class="alert alert-danger">
+    {{ message|slice:":0" }}
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    Store
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.ramo_atuacao.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form_store.ramo_atuacao.errors }}
+                                {{ form_store.ramo_atuacao }}
+                            </div>
+
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.nome.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form_store.nome.errors }}
+                                {{ form_store.nome }}
+                            </div>
+
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.descricao.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form_store.descricao.errors }}
+                                {{ form_store.descricao }}
+                            </div>
+
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.contato.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form_store.contato.errors }}
+                                {{ form_store.contato }}
+                            </div>
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.slug.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form_store.slug.errors }}
+                                {{ form_store.slug }}
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn bg-info text-white">Atualizar</button>
+                        <button class="btn bg-danger text-white">Deletar</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+
+
+</div>
+
+
+{% endblock content %}
