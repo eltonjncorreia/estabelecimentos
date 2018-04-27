@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, resolve_url as r, get_object_or_404
 
@@ -22,12 +23,22 @@ def create(request):
     return render(request, 'core/cadastro.html', {'form': form})
 
 
-def detail(request, slug=None):
+def editar(request, slug=None):
     try:
         store = get_object_or_404(Store, slug=slug)
-    except Store.DoesNotExists:
-        raise ValueError('Erro')
+    except Store.DoesNotExist:
+        store = None
 
-    return render(request, 'core/detail.html', {'store': store})
+    if request.method == 'POST':
+        form_store = StoreModelForm(request.POST, instance=store)
+        if form_store.is_valid():
+            form_store.save()
+
+            messages.success(request, 'Atualização realizada')
+            return HttpResponseRedirect(r('core:editar', slug=slug))
+    else:
+        form_store = StoreModelForm(instance=store)
+
+    return render(request, 'core/editar.html', {'form_store': form_store})
 
 
