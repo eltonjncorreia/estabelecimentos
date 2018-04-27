@@ -3,14 +3,16 @@
 
 -  clone o projeto ``` https://github.com/eltonjncorreia/estabelecimentos.git store ```
 -  entre no diretorio ``` cd store ```
--  crie um ambiente virtual da maneira que preferir ``` python -m venv .venv ``` ou com Pipenv
+-  crie um ambiente virtual da maneira que preferir ``` python -m venv .venv ```
 -  ative o virtual env ``` source .venv/bin/activate ```
+-  Instale as dependencias ``` pip install -r requirements.txt ```
 
--  Instale as dependencias.
--  Estou usando o Pipenv, então use ``` pipenv install Pipfile```
+#### Ou com Pipenv
+
+-  Com o Pipenv use ``` pipenv install Pipfile```
 -  depois ative a virtual env  ``` pipenv shell```
--  ou  se estiver usando pip,
--  depois ``` pip install -r requirements.txt ```
+
+### Configure as instancias
 
 -  Configure a instância com o .env  ``` cp contrib/env-sample .env ```
 -  rode os testes ``` python manage.py test ```
