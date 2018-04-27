@@ -11,7 +11,7 @@ class Store(models.Model):
     nome = models.CharField('Nome', max_length=255)
     slug = models.SlugField('Slug')
     descricao = models.CharField('Descrição', max_length=255)
-    contato = models.IntegerField('Contato', validators=[RegexValidator(r'^\d+$')])
+    contato = models.CharField('Contato', max_length=11, validators=[RegexValidator(r'^\d+$')])
 
     class Meta:
         ordering = ['nome']
