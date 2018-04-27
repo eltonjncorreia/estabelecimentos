@@ -31,7 +31,6 @@ def create(request):
             return HttpResponseRedirect(r('core:create'))
     else:
         form = StoreModelForm()
-
     return render(request, 'core/cadastro.html', {'form': form})
 
 
