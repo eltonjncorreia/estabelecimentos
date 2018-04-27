@@ -19,7 +19,7 @@
 {% endif %}
 
 <!--CAMPOS DE BUSCA-->
-<form method="post" action=".">
+<form method="get" action=".">
   {% csrf_token %}
 
   <div class="input-group">
@@ -27,7 +27,7 @@
     <div class="input-group-prepend">
       <button class="btn btn-outline-secondary" type="submit">Buscar</button>
     </div>
-    <input type="text" name="valor" placeholder="Nome ou Numero" class="form-control">
+    <input type="text" name="valor" placeholder="Buscar por nome" class="form-control">
 
 
   </div>
