@@ -20,12 +20,45 @@
 
 
 <div class="row">
-    <form action="." method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button class="btn btn-success" type="submit">Cadastrar</button>
+
+
+    <form method="post" action=".">
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.ramo_atuacao.label }}</label>
+            <div class="col-sm-10">
+                {{ form.ramo_atuacao.errors }}
+                {{ form.ramo_atuacao }}
+            </div>
+
+            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.nome.label }}</label>
+            <div class="col-sm-10">
+                {{ form.nome.errors }}
+                {{ form.nome }}
+            </div>
+
+            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.descricao.label }}</label>
+            <div class="col-sm-10">
+                {{ form.descricao.errors }}
+                {{ form.descricao }}
+            </div>
+
+            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.contato.label }}</label>
+            <div class="col-sm-10">
+                {{ form.contato.errors }}
+                {{ form.contato }}
+            </div>
+            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.slug.label }}</label>
+            <div class="col-sm-10">
+                {{ form.slug.errors }}
+                {{ form.slug }}
+            </div>
+        </div>
+
     </form>
+
+
 </div>
+
 <!-- /.row -->
 
 
