@@ -5,7 +5,7 @@ from conceptus.core.forms import StoreModelForm
 from conceptus.core.models import Store
 
 
-class StoreObjTestCase(TestCase):
+class StoreHtmlTest(TestCase):
     def setUp(self):
         self.obj = Store.objects.create(nome='Americana',
                                         descricao='loja americana de variedades',
