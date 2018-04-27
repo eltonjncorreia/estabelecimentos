@@ -6,17 +6,17 @@
 
 <!-- Page Heading -->
 
-  {% if messages %}
+{% if messages %}
 
-        {% for message in messages %}
+{% for message in messages %}
 
-        <div class="alert alert-danger">
-          {{ message|slice:":0" }}
-        </div>
+<div class="alert alert-danger">
+  {{ message|slice:":0" }}
+</div>
 
-        {% endfor %}
+{% endfor %}
 
-  {% endif %}
+{% endif %}
 
 <!--CAMPOS DE BUSCA-->
 <form method="post" action=".">
@@ -39,22 +39,43 @@
 
 <div class="row">
 
-  {% for store in stores %}
+  <div class="col-lg text-center">
 
-  <div class="col-lg-4 col-sm-6 portfolio-item">
-    <div class="card h-100">
-      <!--<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="">{{ store.nome }}</a>
-        </h4>
-        <p class="card-text">dipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">Nome da Loja</th>
+            <th scope="col">Ramo de autação</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Slug</th>
+
+          </tr>
+          </thead>
+
+          {% for store in stores %}
+
+            <tbody>
+              <tr>
+                <td><a href="{% url 'core:detail' store.slug %}">{{ store.nome }}</a></td>
+                <td>{{ store.ramo_atuacao }}</td>
+                <td>{{ store.descricao }}</td>
+                <td>{{ store.contato }}</td>
+                <td>{{ store.slug }}</td>
+
+              </tr>
+
+            </tbody>
+          {% endfor %}
+        </table>
       </div>
+      <!-- /.table-responsive -->
     </div>
+
+    <!-- /.panel-body -->
   </div>
-
-  {% endfor %}
-
 </div>
 <!-- /.row -->
 
