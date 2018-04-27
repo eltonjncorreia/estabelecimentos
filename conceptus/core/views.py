@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, resolve_url as r, get_object_or_404
+from django.shortcuts import render, resolve_url as r
 
 from conceptus.core.forms import StoreModelForm
 from conceptus.core.models import Store
