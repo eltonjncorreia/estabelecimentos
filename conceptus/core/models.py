@@ -5,7 +5,12 @@ from django.core.validators import RegexValidator
 class Store(models.Model):
     ATUACAO = (('Alimentos', 'Alimentos'),
                ('Automoveis', 'Automóveis'),
-               ('Esporte', 'Esporte'))
+               ('Calçados', 'Calçados'),
+               ('Esporte', 'Esporte'),
+               ('Móveis', 'Móveis'),
+               ('Roupa', 'Roupa'),
+               ('Tecnologia', 'Tecnologia'),
+               )
 
     ramo_atuacao = models.CharField(max_length=10, choices=ATUACAO, default='Alimentos')
     nome = models.CharField('Nome', max_length=255)
