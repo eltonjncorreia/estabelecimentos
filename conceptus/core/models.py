@@ -3,11 +3,11 @@ from django.core.validators import RegexValidator
 
 
 class Store(models.Model):
-    ATUACAO = (('A', 'Alimentos'),
-               ('Auto', 'Automóveis'),
-               ('Esp', 'Esport'))
+    ATUACAO = (('Alimentos', 'Alimentos'),
+               ('Automoveis', 'Automóveis'),
+               ('Esporte', 'Esporte'))
 
-    ramo_atuacao = models.CharField(max_length=4, choices=ATUACAO)
+    ramo_atuacao = models.CharField(max_length=10, choices=ATUACAO, default='Alimentos')
     nome = models.CharField('Nome', max_length=255)
     slug = models.SlugField('Slug')
     descricao = models.CharField('Descrição', max_length=255)
