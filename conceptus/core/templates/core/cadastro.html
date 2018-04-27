@@ -4,60 +4,83 @@
 
 {% block content %}
 
-<!-- Page Heading -->
+ Page Heading
 
-  <!--{% if messages %}-->
+  {% if messages %}
 
-        <!--{% for message in messages %}-->
+        {% for message in messages %}
 
-        <!--<div class="alert alert-danger">-->
-          <!--{{ message|slice:":0" }}-->
-        <!--</div>-->
-
-        <!--{% endfor %}-->
-
-  <!--{% endif %}-->
-
-
-<div class="row">
-
-
-    <form method="post" action=".">
-        <div class="form-group row">
-            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.ramo_atuacao.label }}</label>
-            <div class="col-sm-10">
-                {{ form.ramo_atuacao.errors }}
-                {{ form.ramo_atuacao }}
-            </div>
-
-            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.nome.label }}</label>
-            <div class="col-sm-10">
-                {{ form.nome.errors }}
-                {{ form.nome }}
-            </div>
-
-            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.descricao.label }}</label>
-            <div class="col-sm-10">
-                {{ form.descricao.errors }}
-                {{ form.descricao }}
-            </div>
-
-            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.contato.label }}</label>
-            <div class="col-sm-10">
-                {{ form.contato.errors }}
-                {{ form.contato }}
-            </div>
-            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form.slug.label }}</label>
-            <div class="col-sm-10">
-                {{ form.slug.errors }}
-                {{ form.slug }}
-            </div>
+        <div class="alert alert-success">
+          {{ message|slice:":0" }}
         </div>
 
-    </form>
+        {% endfor %}
+
+  {% endif %}
+
+
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    Store
+                </div>
+                <div class="card-body">
+                    <form action="." method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">{{ form.ramo_atuacao.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form.ramo_atuacao.errors }}
+                                {{ form.ramo_atuacao }}
+                            </div>
+
+                            <label class="col-sm-2 col-form-label">{{ form.nome.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form.nome.errors }}
+                                {{ form.nome }}
+                            </div>
+
+                            <label  class="col-sm-2 col-form-label">{{ form.descricao.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form.descricao.errors }}
+                                {{ form.descricao }}
+                            </div>
+
+                            <label class="col-sm-2 col-form-label">{{ form.contato.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form.contato.errors }}
+                                {{ form.contato }}
+                            </div>
+                            <label  class="col-sm-2 col-form-label">{{ form.slug.label }}</label>
+                            <div class="col-sm-10">
+                                {{ form.slug.errors }}
+                                {{ form.slug }}
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn bg-success text-white">Cadastrar</button>
+                        <a href="{% url 'core:dashboard' %}" class="btn bg-info text-white">Voltar</a>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
 
 
 </div>
+
 
 <!-- /.row -->
 
