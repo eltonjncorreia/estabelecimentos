@@ -16,18 +16,19 @@ def create(request):
         form = StoreModelForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(r('core:dashboard'))
+            messages.success(request, "Cadastrado com sucesso")
+            return HttpResponseRedirect(r('core:create'))
     else:
         form = StoreModelForm()
 
     return render(request, 'core/cadastro.html', {'form': form})
 
 
-def editar(request, slug=None):
+def editar(request, pk):
     try:
-        store = get_object_or_404(Store, slug=slug)
+        store = Store.objects.get(pk=pk)
     except Store.DoesNotExist:
-        store = None
+        raise ValueError('Error')
 
     if request.method == 'POST':
         form_store = StoreModelForm(request.POST, instance=store)
@@ -35,10 +36,14 @@ def editar(request, slug=None):
             form_store.save()
 
             messages.success(request, 'Atualização realizada')
-            return HttpResponseRedirect(r('core:editar', slug=slug))
+            return HttpResponseRedirect(r('core:editar', pk=pk))
     else:
         form_store = StoreModelForm(instance=store)
 
-    return render(request, 'core/editar.html', {'form_store': form_store})
+    return render(request, 'core/editar.html', {'form_store': form_store, 'store': store.slug})
 
 
+def deletar(request, slug):
+    Store.objects.filter(slug=slug).delete()
+    messages.success(request, 'Deletado com sucesso')
+    return HttpResponseRedirect(r('core:dashboard'))
