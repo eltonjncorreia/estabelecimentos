@@ -7,7 +7,12 @@ from conceptus.core.models import Store
 
 
 def dashboard(request):
-    stores = Store.objects.all()
+    valor = request.GET.get('valor')
+    if valor:
+        stores = Store.objects.filter(nome__contains=valor)
+
+    if not valor:
+        stores = Store.objects.all()
     return render(request, 'core/dashboard.html', {'stores': stores})
 
 
