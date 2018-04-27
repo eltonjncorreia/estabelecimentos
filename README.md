@@ -1,7 +1,7 @@
 # Gerencia de estabelecimentos
 
 
--  clone o projeto ``` https://github.com/eltonjncorreia/estabelecimentos.git store ```
+-  clone o projeto ```git clone https://github.com/eltonjncorreia/estabelecimentos.git store ```
 -  entre no diretorio ``` cd store ```
 -  crie um ambiente virtual da maneira que preferir ``` python -m venv .venv ```
 -  ative o virtual env ``` source .venv/bin/activate ```
