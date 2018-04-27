@@ -20,3 +20,6 @@
 -  Crie as migrações com o camando ``` python manage.py migrate ```
 -  execute a aplicação ```python manage.py runserver```
 
+##### Acessar a aplicação no endereço:
+
+``` https://store-admins.herokuapp.com/ ```
