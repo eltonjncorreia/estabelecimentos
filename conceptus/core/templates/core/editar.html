@@ -8,7 +8,7 @@
 
 {% for message in messages %}
 
-<div class="alert alert-success">
+<div class="alert alert-info">
     {{ message|slice:":0" }}
 </div>
 
@@ -33,30 +33,30 @@
                         {% csrf_token %}
 
                         <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.ramo_atuacao.label }}</label>
+                            <label class="col-sm-2 col-form-label">{{ form_store.ramo_atuacao.label }}</label>
                             <div class="col-sm-10">
                                 {{ form_store.ramo_atuacao.errors }}
                                 {{ form_store.ramo_atuacao }}
                             </div>
 
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.nome.label }}</label>
+                            <label class="col-sm-2 col-form-label">{{ form_store.nome.label }}</label>
                             <div class="col-sm-10">
                                 {{ form_store.nome.errors }}
                                 {{ form_store.nome }}
                             </div>
 
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.descricao.label }}</label>
+                            <label class="col-sm-2 col-form-label">{{ form_store.descricao.label }}</label>
                             <div class="col-sm-10">
                                 {{ form_store.descricao.errors }}
                                 {{ form_store.descricao }}
                             </div>
 
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.contato.label }}</label>
+                            <label class="col-sm-2 col-form-label">{{ form_store.contato.label }}</label>
                             <div class="col-sm-10">
                                 {{ form_store.contato.errors }}
                                 {{ form_store.contato }}
                             </div>
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">{{ form_store.slug.label }}</label>
+                            <label class="col-sm-2 col-form-label">{{ form_store.slug.label }}</label>
                             <div class="col-sm-10">
                                 {{ form_store.slug.errors }}
                                 {{ form_store.slug }}
@@ -64,7 +64,7 @@
                         </div>
                         <br>
                         <button type="submit" class="btn bg-info text-white">Atualizar</button>
-                        <a href="{% url 'core:dashboard' %}"  class="btn btn-warning">Cancelar</a>
+                        <a href="{% url 'core:dashboard' %}"  class="btn btn-warning ">Voltar</a>
                         <a href="{% url 'core:deletar' store %}" type="submit" class="btn btn-danger text-white">Deletar</a>
                     </form>
                 </div>
